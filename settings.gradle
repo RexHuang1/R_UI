@@ -1,0 +1,2 @@
+include ':app', ':r_ui'
+rootProject.name='R_UI'
