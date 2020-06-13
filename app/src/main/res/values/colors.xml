@@ -7,4 +7,5 @@
     <color name="tabBottomBackground">#ff898989</color>
     <color name="tabBottomDefault">#ff656667</color>
     <color name="tabBottomSelected">#ffd44949</color>
+    <color name="demo_item_background">#ff563d</color>
 </resources>

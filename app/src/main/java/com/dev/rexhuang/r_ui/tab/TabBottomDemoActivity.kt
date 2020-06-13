@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.dev.rexhuang.r_ui.R
 import com.dev.rexhuang.rui.tab.bottom.RTabBottomInfo
 import com.dev.rexhuang.rui.tab.bottom.RTabBottomLayout
-import com.dev.rexhuang.rui.tab.util.RDisplayUtil
+import com.dev.rexhuang.rui.util.RDisplayUtil
 import java.util.*
 
 /**
@@ -25,13 +25,10 @@ class TabBottomDemoActivity : AppCompatActivity() {
 
     @SuppressLint("NewApi")
     private fun initTabBottom() {
-        val tabBottomLayout: RTabBottomLayout = findViewById(R.id.rtablayout)
+        val tabBottomLayout: RTabBottomLayout = findViewById(R.id.tab_bottom_layout)
         tabBottomLayout.setTabAlpha(0.85f)
         tabBottomLayout.setTabBackground(getColor(R.color.colorAccent))
         val bottomInfoList: MutableList<RTabBottomInfo<*>> = ArrayList()
-        //删除mipmap-anydpi-v26 xml @https://hymane.itscoder.com/bitmap-factory-decode-return-null/
-//            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
-//            HiTabInfo info = new HiTabInfo("tab" + i, bitmap, bitmap);
         val homeInfo = RTabBottomInfo(
             "首页",
             "fonts/iconfont.ttf",
@@ -97,7 +94,7 @@ class TabBottomDemoActivity : AppCompatActivity() {
             Toast.makeText(this@TabBottomDemoActivity, nextInfo.name, Toast.LENGTH_SHORT).show()
         }
         tabBottomLayout.defaultSelected(homeInfo)
-        //        改变某个tab的高度
+        // 改变某个tab的高度
         val tabBottom = tabBottomLayout.findTab(bottomInfoList[2])
         tabBottom?.apply { resetHeight(RDisplayUtil.dp2px(66f, resources)) }
     }

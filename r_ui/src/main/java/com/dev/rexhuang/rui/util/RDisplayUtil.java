@@ -1,4 +1,4 @@
-package com.dev.rexhuang.rui.tab.util;
+package com.dev.rexhuang.rui.util;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -24,7 +24,6 @@ public class RDisplayUtil {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.getDisplayMetrics());
     }
 
-
     public static int getDisplayWidthInPx(@NonNull Context context) {
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         if (wm != null) {
@@ -47,4 +46,5 @@ public class RDisplayUtil {
         }
         return 0;
     }
+
 }

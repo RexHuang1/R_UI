@@ -1,4 +1,4 @@
-package com.dev.rexhuang.rui.tab.util;
+package com.dev.rexhuang.rui.util;
 
 import android.app.Application;
 
@@ -9,9 +9,9 @@ import java.lang.reflect.InvocationTargetException;
  * *  on 2020/6/12
  */
 public class RAppGlobals {
+
     public static Application getApplication() {
         try {
-
             return (Application) Class.forName("android.app.ActivityThread")
                     .getMethod("currentApplication")
                     .invoke(null);

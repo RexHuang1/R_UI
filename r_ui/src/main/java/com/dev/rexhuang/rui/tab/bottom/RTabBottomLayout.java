@@ -17,8 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dev.rexhuang.rui.R;
 import com.dev.rexhuang.rui.tab.common.IRTabLayout;
-import com.dev.rexhuang.rui.tab.util.RDisplayUtil;
-import com.dev.rexhuang.rui.tab.util.RViewUtil;
+import com.dev.rexhuang.rui.util.RDisplayUtil;
+import com.dev.rexhuang.rui.util.RViewUtil;
 
 import java.util.ArrayList;
 import java.util.Iterator;

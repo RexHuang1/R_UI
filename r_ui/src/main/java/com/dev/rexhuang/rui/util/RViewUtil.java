@@ -1,4 +1,4 @@
-package com.dev.rexhuang.rui.tab.util;
+package com.dev.rexhuang.rui.util;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,4 +41,5 @@ public class RViewUtil {
         }
         return null;
     }
+
 }
