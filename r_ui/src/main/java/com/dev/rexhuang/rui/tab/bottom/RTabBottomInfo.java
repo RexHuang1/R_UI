@@ -12,6 +12,7 @@ public class RTabBottomInfo<Color> {
         BITMAP, ICON
     }
 
+    public Class<?> fragment;
     public String name;
     public TabType tabType;
     public Bitmap defaultBitmap;
@@ -39,5 +40,10 @@ public class RTabBottomInfo<Color> {
         this.defaultColor = defaultColor;
         this.selectedColor = selectedColor;
         this.tabType = TabType.ICON;
+    }
+
+    public RTabBottomInfo<Color> setFragment(Class<?> fragment) {
+        this.fragment = fragment;
+        return this;
     }
 }

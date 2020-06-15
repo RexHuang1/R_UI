@@ -1,4 +1,4 @@
-package com.dev.rexhuang.r_ui.tab
+package com.dev.rexhuang.r_ui.app.tab
 
 import android.annotation.SuppressLint
 import android.graphics.BitmapFactory
