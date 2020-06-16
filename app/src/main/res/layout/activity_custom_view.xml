@@ -18,7 +18,15 @@
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent"/>-->
 
-    <com.dev.rexhuang.rui.base.SpiderView
+<!--    <com.dev.rexhuang.rui.base.SpiderView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
+
+<!--    <com.dev.rexhuang.rui.base.CustomCircleView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
+
+    <com.dev.rexhuang.rui.base.ClipRgnView
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </FrameLayout>

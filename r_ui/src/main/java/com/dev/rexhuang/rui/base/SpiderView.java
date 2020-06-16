@@ -5,7 +5,9 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -55,7 +57,9 @@ public class SpiderView extends View {
         skillPaint.setTextSize(40);
         skillPaint.setColor(Color.RED);
         skillPaint.setAntiAlias(true);
-        skillPaint.setTextAlign(Paint.Align.CENTER);
+        skillPaint.setTextAlign(Paint.Align.LEFT);
+        Typeface typeface = Typeface.createFromAsset(getContext().getAssets(), "fonts/jian_luobo.ttf");
+        skillPaint.setTypeface(typeface);
     }
 
     @Override
@@ -68,6 +72,18 @@ public class SpiderView extends View {
     }
 
     @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                Typeface typeface = Typeface.createFromAsset(getContext().getAssets(), "fonts/xindexingcao57.ttf");
+                skillPaint.setTypeface(typeface);
+                invalidate();
+                break;
+        }
+        return super.onTouchEvent(event);
+    }
+
+    @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         drawPolygon(canvas);
@@ -77,8 +93,11 @@ public class SpiderView extends View {
     }
 
     private void drawGrade(Canvas canvas) {
-        float curR = (float) (1.2 * radius);
+        float curR = (float) (1.1 * radius);
         for (int i = 0; i < count; i++) {
+            if (i >= count / 2){
+                skillPaint.setTextAlign(Paint.Align.RIGHT);
+            }
             float curX = (float) (centerX + curR * Math.cos(angle * i));
             float curY = (float) (centerY + curR * Math.sin(angle * i));
             canvas.drawText(skill[i], curX, curY, skillPaint);
