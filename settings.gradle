@@ -1,2 +1,5 @@
 include ':app', ':r_ui'
 rootProject.name='R_UI'
+
+include ':r_lib'
+project(':r_lib').projectDir = "../R_Lib/r_lib" as File

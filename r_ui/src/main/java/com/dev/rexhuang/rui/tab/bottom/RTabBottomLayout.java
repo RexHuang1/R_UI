@@ -17,8 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dev.rexhuang.rui.R;
 import com.dev.rexhuang.rui.tab.common.IRTabLayout;
-import com.dev.rexhuang.rui.util.RDisplayUtil;
-import com.dev.rexhuang.rui.util.RViewUtil;
+import com.dev.rexhuang.rlib.util.RDisplayUtil;
+import com.dev.rexhuang.rlib.util.RViewUtil;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -160,7 +160,6 @@ public class RTabBottomLayout extends FrameLayout implements IRTabLayout<RTabBot
             targetView.setPadding(0, 0, 0, RDisplayUtil.dp2px(tabBottomHeight, getResources()));
             targetView.setClipToPadding(true);
         }
-
     }
 
     private void addBottomLine() {

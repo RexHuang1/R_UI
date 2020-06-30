@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/framelayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".app.custom.CustomViewActivity">
@@ -26,7 +27,58 @@
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent"/>-->
 
-    <com.dev.rexhuang.rui.base.ClipRgnView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+<!--    <com.dev.rexhuang.rui.base.ClipRgnView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
+
+<!--    <com.dev.rexhuang.rui.base.RTextView-->
+<!--        android:id="@+id/custom_tv"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center_horizontal|bottom"/>-->
+
+<!--    <com.dev.rexhuang.rui.base.GetSegmentView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"/>-->
+
+<!--    <com.dev.rexhuang.rui.base.GetPosTanView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"/>-->
+
+    <com.dev.rexhuang.rui.base.AliPayView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 </FrameLayout>
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:orientation="vertical">-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal">-->
+
+<!--        <Button-->
+<!--            android:id="@+id/add_btn"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="添加控件"/>-->
+
+<!--        <Button-->
+<!--            android:id="@+id/remove_btn"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="移除控件"/>-->
+<!--    </LinearLayout>-->
+
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/linearlayoutcontainer"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:animateLayoutChanges="false"-->
+<!--        android:orientation="vertical"/>-->
+
+<!--</LinearLayout>-->

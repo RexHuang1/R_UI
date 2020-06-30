@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.View
 import com.dev.rexhuang.r_ui.R
 import com.dev.rexhuang.r_ui.app.custom.CustomViewActivity
+import com.dev.rexhuang.r_ui.app.custom.TestActivity
+import com.dev.rexhuang.r_ui.app.refresh.RefreshActivity
 import com.dev.rexhuang.r_ui.app.tab.TabBottomDemoActivity
 import com.dev.rexhuang.r_ui.app.tab.TabTopDemoActivity
 
@@ -17,15 +19,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        when(v!!.id){
-            R.id.tv_tab_bottom ->{
-                startActivity(Intent(this, TabBottomDemoActivity::class.java));
+        when (v!!.id) {
+            R.id.tv_tab_bottom -> {
+                startActivity(Intent(this, TabBottomDemoActivity::class.java))
             }
-            R.id.tv_tab_top ->{
-                startActivity(Intent(this, TabTopDemoActivity::class.java));
+            R.id.tv_tab_top -> {
+                startActivity(Intent(this, TabTopDemoActivity::class.java))
             }
-            R.id.tv_custom_view ->{
-                startActivity(Intent(this, CustomViewActivity::class.java));
+            R.id.tv_refresh -> {
+                startActivity(Intent(this, RefreshActivity::class.java))
+            }
+            R.id.tv_custom_view -> {
+                startActivity(Intent(this, CustomViewActivity::class.java))
+            }
+            R.id.tv_test_view -> {
+                startActivity(Intent(this, TestActivity::class.java))
             }
         }
     }

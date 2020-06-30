@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dev.rexhuang.r_ui.R
+import com.dev.rexhuang.rlib.util.RDisplayUtil
 import com.dev.rexhuang.rui.tab.bottom.RTabBottomInfo
 import com.dev.rexhuang.rui.tab.bottom.RTabBottomLayout
-import com.dev.rexhuang.rui.util.RDisplayUtil
 import java.util.*
 
 /**

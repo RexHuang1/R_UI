@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.dev.rexhuang.rui.tab.common.IRTabLayout;
-import com.dev.rexhuang.rui.util.RDisplayUtil;
+import com.dev.rexhuang.rlib.util.RDisplayUtil;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -80,15 +80,15 @@ public class RTabTopLayout extends HorizontalScrollView implements IRTabLayout<R
             }
         }
         for (int i = 0; i < infoList.size(); i++) {
-            final RTabTopInfo<?> tabBottomInfo = infoList.get(i);
+            final RTabTopInfo<?> tabTopInfo = infoList.get(i);
             RTabTop tabTop = new RTabTop(getContext());
-            tabTop.setRTabInfo(tabBottomInfo);
+            tabTop.setRTabInfo(tabTopInfo);
             rootLayout.addView(tabTop);
             addTabSelectedChangedListener(tabTop);
             tabTop.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    RTabTopLayout.this.onSelected(tabBottomInfo);
+                    RTabTopLayout.this.onSelected(tabTopInfo);
                 }
             });
         }
@@ -158,16 +158,16 @@ public class RTabTopLayout extends HorizontalScrollView implements IRTabLayout<R
         RTabTop tabTop = findTab(infoList.get(next));
         Rect rect = new Rect();
         tabTop.getLocalVisibleRect(rect);
-        if (toRight){
-            if (rect.right > tabWidth){
+        if (toRight) {
+            if (rect.right > tabWidth) {
                 return tabWidth;
             } else {
                 return tabWidth - rect.right;
             }
-        } else{
-            if (rect.left <= -tabWidth){
+        } else {
+            if (rect.left <= -tabWidth) {
                 return tabWidth;
-            } else if (rect.left > 0){
+            } else if (rect.left > 0) {
                 return rect.left;
             }
         }
