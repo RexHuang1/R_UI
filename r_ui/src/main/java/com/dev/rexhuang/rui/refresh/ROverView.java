@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import com.dev.rexhuang.rlib.util.RDisplayUtil;
 
 /**
+ * 下拉刷新的Overlay视图,可以重载这个类来定义自己的Overlay
  * *  created by RexHuang
  * *  on 2020/6/30
  */
@@ -101,10 +102,20 @@ public abstract class ROverView extends FrameLayout {
      */
     public abstract void onFinish();
 
+    /**
+     * 设置状态
+     *
+     * @param state 状态
+     */
     public void setState(RRefreshState state) {
         this.mState = state;
     }
 
+    /**
+     * 获取状态
+     *
+     * @return 状态
+     */
     public RRefreshState getState() {
         return mState;
     }

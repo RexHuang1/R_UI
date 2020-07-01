@@ -5,13 +5,18 @@ import android.animation.LayoutTransition
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.annotation.SuppressLint
+import android.graphics.drawable.Animatable
+import android.graphics.drawable.AnimatedVectorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
 import com.dev.rexhuang.r_ui.R
 
 
@@ -23,6 +28,7 @@ class CustomViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_custom_view)
+
 //        val frame = findViewById<FrameLayout>(R.id.framelayout);
 //        val tv = findViewById<TextView>(R.id.custom_tv)
 //        val scaleAnimation = ScaleAnimation(0.5f, 1f, 0.5f, 1f)

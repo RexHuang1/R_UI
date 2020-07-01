@@ -18,17 +18,74 @@ import androidx.annotation.Nullable;
  * *  on 2020/6/30
  */
 public class RRefreshLayout extends FrameLayout implements RRefresh {
+    private static final String TAG = RRefreshLayout.class.getSimpleName();
     private ROverView.RRefreshState mState;
     private GestureDetector mGestureDetector;
+    private AutoScroller mAutoScroller;
     private RRefresh.RRefreshListener mRefreshListener;
-    ;
+
     protected ROverView mOverView;
     private int mLastY;
+    // 刷新时是否禁止滚动
     private boolean disableRefreshScroll;
+
+    public RRefreshLayout(@NonNull Context context) {
+        super(context);
+        init();
+
+    }
+
+    public RRefreshLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        init();
+    }
+
+
+    public RRefreshLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init();
+    }
+
+    private void init() {
+        mGestureDetector = new GestureDetector(getContext(), mRGestureDetector);
+        mAutoScroller = new AutoScroller();
+    }
+
+    @Override
+    public void setDisableRefreshScroll(boolean disableRefreshScroll) {
+        this.disableRefreshScroll = disableRefreshScroll;
+    }
+
+    @Override
+    public void refreshFinished() {
+        View head = getChildAt(0);
+        mOverView.onFinish();
+        mOverView.setState(ROverView.RRefreshState.STATE_INIT);
+        int bottom = head.getBottom();
+        if (bottom > 0) {
+            recover(bottom);
+        }
+        mState = ROverView.RRefreshState.STATE_INIT;
+    }
+
+    @Override
+    public void setRefreshListener(RRefreshListener refreshListener) {
+        this.mRefreshListener = refreshListener;
+    }
+
+    @Override
+    public void setRefreshOverView(ROverView overView) {
+        if (mOverView != null) {
+            removeView(mOverView);
+        }
+        this.mOverView = overView;
+        LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+        addView(mOverView, 0, params);
+    }
+
     private RGestureDetector mRGestureDetector = new RGestureDetector() {
         @Override
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-
             if (Math.abs(distanceX) > Math.abs(distanceY) || mRefreshListener != null && !mRefreshListener.enableRefresh()) {
                 // 横向滚动,或刷新被禁止则不处理
                 return false;
@@ -67,8 +124,72 @@ public class RRefreshLayout extends FrameLayout implements RRefresh {
         }
     };
 
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        // 事件分发处理
+        if (!mAutoScroller.isFinished()) {
+            return false;
+        }
+
+        View head = getChildAt(0);
+        if (ev.getAction() == MotionEvent.ACTION_UP || ev.getAction() == MotionEvent.ACTION_CANCEL
+                || ev.getAction() == MotionEvent.ACTION_POINTER_INDEX_MASK) {
+            // 松开手
+            if (head.getBottom() > 0) {
+                if (mState != ROverView.RRefreshState.STATE_REFRESH) {
+                    // 非刷新状态
+                    recover(head.getBottom());
+                    return false;
+                }
+            }
+            mLastY = 0;
+        }
+        boolean consumed = mGestureDetector.onTouchEvent(ev);
+        if (consumed || mState != ROverView.RRefreshState.STATE_INIT && mState != ROverView.RRefreshState.STATE_REFRESH && head.getBottom() != 0) {
+            ev.setAction(MotionEvent.ACTION_CANCEL);
+            return super.dispatchTouchEvent(ev);
+        }
+        if (consumed) {
+            return true;
+        } else {
+            return super.dispatchTouchEvent(ev);
+        }
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        // 定义head和child的排列位置
+        View head = getChildAt(0);
+        View child = getChildAt(1);
+        if (head != null && child != null) {
+            int childTop = child.getTop();
+            if (mState == ROverView.RRefreshState.STATE_REFRESH) {
+                head.layout(0, mOverView.mPullRefreshHeight - head.getMeasuredHeight(), right, mOverView.mPullRefreshHeight);
+                child.layout(0, mOverView.mPullRefreshHeight, right, mOverView.mPullRefreshHeight + child.getMeasuredHeight());
+            } else {
+                head.layout(0, childTop - head.getMeasuredHeight(), right, childTop);
+                child.layout(0, childTop, right, childTop + child.getMeasuredHeight());
+            }
+            View other;
+            for (int i = 2; i < getChildCount(); i++) {
+                other = getChildAt(i);
+                other.layout(0, top, right, bottom);
+            }
+        }
+    }
+
+    private void recover(int dis) {
+        if (mRefreshListener != null && dis > mOverView.mPullRefreshHeight) {
+            // 滚动到指定位置dis-mOverView.mPullRefreshHeight
+            mAutoScroller.recover(dis - mOverView.mPullRefreshHeight);
+            mState = ROverView.RRefreshState.STATE_OVER_RELEASE;
+        } else {
+            mAutoScroller.recover(dis);
+        }
+    }
+
     /**
-     * 根据便宜两移动header与child
+     * 根据偏移量移动header与child
      *
      * @param offsetY 偏移量
      * @param nonAuto 是否非自动滚动触发
@@ -129,99 +250,11 @@ public class RRefreshLayout extends FrameLayout implements RRefresh {
         }
     }
 
-    private AutoScroller mAutoScroller;
 
-    public RRefreshLayout(@NonNull Context context) {
-        super(context);
-        init();
-
-    }
-
-    public RRefreshLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-        init();
-    }
-
-
-    public RRefreshLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
-    }
-
-
-    private void init() {
-        mGestureDetector = new GestureDetector(getContext(), mRGestureDetector);
-        mAutoScroller = new AutoScroller();
-    }
-
-    @Override
-    public void setDisableRefreshScroll(boolean disableRefreshScroll) {
-        this.disableRefreshScroll = disableRefreshScroll;
-    }
-
-    @Override
-    public void refreshFinished() {
-        View head = getChildAt(0);
-        mOverView.onFinish();
-        mOverView.setState(ROverView.RRefreshState.STATE_INIT);
-        int bottom = head.getBottom();
-        if (bottom > 0) {
-            recover(bottom);
-        }
-        mState = ROverView.RRefreshState.STATE_INIT;
-    }
-
-    @Override
-    public void setRefreshListener(RRefreshListener refreshListener) {
-        this.mRefreshListener = refreshListener;
-    }
-
-    @Override
-    public void setRefreshOverView(ROverView overView) {
-        if (mOverView != null) {
-            removeView(mOverView);
-        }
-        this.mOverView = overView;
-        LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        addView(mOverView, 0, params);
-    }
-
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        View head = getChildAt(0);
-        if (ev.getAction() == MotionEvent.ACTION_UP || ev.getAction() == MotionEvent.ACTION_CANCEL || ev.getAction() == MotionEvent.ACTION_POINTER_INDEX_MASK) {
-            // 松开手
-            if (head.getBottom() > 0) {
-                if (mState != ROverView.RRefreshState.STATE_REFRESH) {
-                    // 非刷新状态
-                    recover(head.getBottom());
-                    return false;
-                }
-            }
-            mLastY = 0;
-        }
-        boolean consumed = mGestureDetector.onTouchEvent(ev);
-        if (consumed || mState != ROverView.RRefreshState.STATE_INIT && mState != ROverView.RRefreshState.STATE_REFRESH && head.getBottom() != 0) {
-            ev.setAction(MotionEvent.ACTION_CANCEL);
-            return super.dispatchTouchEvent(ev);
-        }
-        if (consumed) {
-            return true;
-        } else {
-            return super.dispatchTouchEvent(ev);
-        }
-    }
-
-    private void recover(int dis) {
-        if (mRefreshListener != null && dis > mOverView.mPullRefreshHeight) {
-            // 滚动到指定位置dis-mOverView.mPullRefreshHeight
-            mAutoScroller.recover(dis - mOverView.mPullRefreshHeight);
-            mState = ROverView.RRefreshState.STATE_OVER_RELEASE;
-        } else {
-            mAutoScroller.recover(dis);
-        }
-    }
-
+    /**
+     * 借助Scroller实现视图的自动滚动
+     * https://juejin.im/post/5c7f4f0351882562ed516ab6
+     */
     private class AutoScroller implements Runnable {
         private Scroller mScroller;
         private int mLastY;
@@ -258,27 +291,6 @@ public class RRefreshLayout extends FrameLayout implements RRefresh {
 
         boolean isFinished() {
             return mIsFinished;
-        }
-    }
-
-    @Override
-    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        View head = getChildAt(0);
-        View child = getChildAt(1);
-        if (head != null && child != null) {
-            int childTop = child.getTop();
-            if (mState == ROverView.RRefreshState.STATE_REFRESH) {
-                head.layout(0, mOverView.mPullRefreshHeight - head.getMeasuredHeight(), right, mOverView.mPullRefreshHeight);
-                child.layout(0, mOverView.mPullRefreshHeight, right, mOverView.mPullRefreshHeight + child.getMeasuredHeight());
-            } else {
-                head.layout(0, childTop - head.getMeasuredHeight(), right, childTop);
-                child.layout(0, childTop, right, childTop + child.getMeasuredHeight());
-            }
-            View other;
-            for (int i = 2; i < getChildCount(); i++) {
-                other= getChildAt(i);
-                other.layout(0,top,right,bottom);
-            }
         }
     }
 }

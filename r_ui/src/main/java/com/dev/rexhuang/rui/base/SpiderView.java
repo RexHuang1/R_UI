@@ -104,18 +104,6 @@ public class SpiderView extends View {
         }
     }
 
-    private void drawGradeE(Canvas canvas) {
-        float curR = (float) (1.1 * radius);
-        for (int i = 0; i < count; i++) {
-            if (i >= count / 2) {
-                skillPaint.setTextAlign(Paint.Align.LEFT);
-            }
-            float curX = (float) (centerX + curR * Math.cos(angle * i));
-            float curY = (float) (centerY + curR * Math.sin(angle * i));
-            canvas.drawText(skill[i], curX, curY, skillPaint);
-        }
-    }
-
     private void drawRegion(Canvas canvas) {
         Path path = new Path();
         valuePaint.setAlpha(100);
