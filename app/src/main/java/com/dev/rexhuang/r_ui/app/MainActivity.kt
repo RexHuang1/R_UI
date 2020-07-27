@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.dev.rexhuang.r_ui.R
+import com.dev.rexhuang.r_ui.app.banner.BannerActivity
 import com.dev.rexhuang.r_ui.app.custom.CustomViewActivity
 import com.dev.rexhuang.r_ui.app.custom.TestActivity
 import com.dev.rexhuang.r_ui.app.refresh.RefreshActivity
@@ -34,6 +35,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.tv_test_view -> {
                 startActivity(Intent(this, TestActivity::class.java))
+            }
+            R.id.tv_banner -> {
+                startActivity(Intent(this, BannerActivity::class.java))
             }
         }
     }

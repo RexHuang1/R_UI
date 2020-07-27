@@ -27,8 +27,6 @@ class RefreshActivity : AppCompatActivity(), View.OnClickListener{
             }
 
         })
-
-
     }
 
     override fun onClick(v: View?) {
