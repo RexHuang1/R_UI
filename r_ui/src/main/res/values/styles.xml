@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="RUI.BaseDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:buttonStyle">@style/Button.Compat</item>
+    </style>
+
+    <style name="RUI.Dialog" parent="RUI.BaseDialog" />
+
+    <!--**********************************************
+    *              rui dialog default style          *
+    **********************************************-->
+    <style name="style_DialogRootLayout">
+        <item name="rui_dialog_min_width">260dp</item>
+        <item name="rui_dialog_max_width">320dp</item>
+        <item name="rui_dialog_inset_hor">40dp</item>
+        <item name="rui_dialog_inset_ver">20dp</item>
+    </style>
+
+    <style name="style_Dialog_Title">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:gravity">left</item>
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">24dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+        <item name="rui_paddingBottomWhenNotContent">27dp</item>
+    </style>
+
+    <style name="style_Dialog_ActionContainer">
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="rui_dialog_action_container_justify_content">end</item>
+        <item name="rui_dialog_action_height">36dp</item>
+        <item name="rui_dialog_action_space">8dp</item>
+    </style>
+
+    <style name="style_Dialog_MessageContent">
+        <item name="android:textColor">#C0FFFFFF</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">left</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">24dp</item>
+        <item name="android:paddingBottom">28dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+        <item name="android:drawablePadding">8dp</item>
+<!--        <item name="rui_paddingTopWhenNotTitle">27dp</item>-->
+    </style>
+</resources>

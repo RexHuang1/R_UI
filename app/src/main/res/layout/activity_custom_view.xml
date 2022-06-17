@@ -5,11 +5,22 @@
     android:id="@+id/framelayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="@dimen/dp_20"
     tools:context=".app.custom.CustomViewActivity">
 
-    <!--    <com.dev.rexhuang.rui.base.BasicView-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"/>-->
+    <com.dev.rexhuang.rui.base.TestView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingRight="@dimen/dp_10"
+        android:paddingTop="@dimen/dp_10"
+        android:textSize="24sp"
+        android:text="test"/>
+<!--        <com.dev.rexhuang.rui.base.BasicView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:text1="Direct declare in XML"-->
+<!--            style="@style/style_BasicView"/>-->
 
     <!--    <com.dev.rexhuang.rui.base.RectPointView-->
     <!--        android:layout_width="match_parent"-->
@@ -46,9 +57,9 @@
     <!--        android:layout_height="wrap_content"/>-->
 
 
-            <com.dev.rexhuang.rui.base.AliPayView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+<!--            <com.dev.rexhuang.rui.base.AliPayView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"/>-->
 
 </FrameLayout>
 

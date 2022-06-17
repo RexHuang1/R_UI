@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  Dialog  -->
+    <item name="rui_dialog_title_id" type="id" />
+    <item name="rui_dialog_operator_layout_id" type="id" />
+    <item name="rui_dialog_content_id" type="id" />
+</resources>

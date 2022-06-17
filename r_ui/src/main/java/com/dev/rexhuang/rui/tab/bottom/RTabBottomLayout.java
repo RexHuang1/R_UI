@@ -144,24 +144,6 @@ public class RTabBottomLayout extends FrameLayout implements IRTabLayout<RTabBot
         fixContentView();
     }
 
-    private void fixContentView() {
-        if (!(getChildAt(0) instanceof ViewGroup)) {
-            return;
-        }
-        ViewGroup contentView = (ViewGroup) getChildAt(0);
-        ViewGroup targetView = RViewUtil.findTypeView(contentView, RecyclerView.class);
-        if (targetView == null) {
-            targetView = RViewUtil.findTypeView(contentView, ScrollView.class);
-        }
-        if (targetView == null) {
-            targetView = RViewUtil.findTypeView(contentView, AbsListView.class);
-        }
-        if (targetView != null) {
-            targetView.setPadding(0, 0, 0, RDisplayUtil.dp2px(tabBottomHeight, getResources()));
-            targetView.setClipToPadding(true);
-        }
-    }
-
     private void addBottomLine() {
         View bottomLine = new View(getContext());
         bottomLine.setBackgroundColor(Color.parseColor(bottomLineColor));
@@ -188,4 +170,30 @@ public class RTabBottomLayout extends FrameLayout implements IRTabLayout<RTabBot
         }
         selectedInfo = nextInfo;
     }
+
+    private void fixContentView() {
+        if (!(getChildAt(0) instanceof ViewGroup)) {
+            return;
+        }
+        ViewGroup contentView = (ViewGroup) getChildAt(0);
+        ViewGroup targetView = RViewUtil.findTypeView(contentView, RecyclerView.class);
+        if (targetView == null) {
+            targetView = RViewUtil.findTypeView(contentView, ScrollView.class);
+        }
+        if (targetView == null) {
+            targetView = RViewUtil.findTypeView(contentView, AbsListView.class);
+        }
+        if (targetView != null) {
+            targetView.setPadding(0, 0, 0, RDisplayUtil.dp2px(tabBottomHeight, getResources()));
+            targetView.setClipToPadding(true);
+        }
+    }
+
+    public static void clipBottomPadding(ViewGroup targetView) {
+        if (targetView != null) {
+            targetView.setPadding(0, 0, 0, RDisplayUtil.dp2px(tabBottomHeight));
+            targetView.setClipToPadding(false);
+        }
+    }
+
 }

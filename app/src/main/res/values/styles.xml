@@ -6,6 +6,13 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+<!--        <item name="attr_style">@style/style_attr_defStyleAttr</item>-->
+<!--        <item name="text1">text1-declare in Theme</item>-->
+<!--        <item name="text2">text2-declare in Theme</item>-->
+<!--        <item name="text3">text3-declare in Theme</item>-->
+<!--        <item name="text4">text4-declare in Theme</item>-->
+<!--        <item name="text5">text5-declare in Theme</item>-->
     </style>
 
 </resources>

@@ -5,8 +5,10 @@ import android.animation.LayoutTransition
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.annotation.SuppressLint
+import android.app.Notification
 import android.graphics.drawable.Animatable
 import android.graphics.drawable.AnimatedVectorDrawable
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -18,6 +20,9 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
 import com.dev.rexhuang.r_ui.R
+import com.dev.rexhuang.rui.base.BasicView
+import com.dev.rexhuang.rui.dialog.RUIDialog
+import com.dev.rexhuang.rui.dialog.RUIDialogAction
 
 
 class CustomViewActivity : AppCompatActivity() {
@@ -29,6 +34,14 @@ class CustomViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_custom_view)
 
+        RUIDialog.Companion.MessageDialogBuilder(this).setMessage("这是一个测试")
+            .setTitle("测试对话框")
+            .setCancelable(true)
+            .setCancelable(true)
+            .addAction(RUIDialogAction())
+            .addAction(RUIDialogAction())
+            .addAction(RUIDialogAction())
+            .show()
 //        val frame = findViewById<FrameLayout>(R.id.framelayout);
 //        val tv = findViewById<TextView>(R.id.custom_tv)
 //        val scaleAnimation = ScaleAnimation(0.5f, 1f, 0.5f, 1f)

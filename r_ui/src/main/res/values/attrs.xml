@@ -1,8 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="RBanner">
-        <attr name="autoPlay" format="boolean"/>
-        <attr name="loop" format="boolean"/>
-        <attr name="intervalTime" format="integer|reference"/>
+        <attr name="autoPlay" format="boolean" />
+        <attr name="loop" format="boolean" />
+        <attr name="intervalTime" format="integer|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="RSliderView">
+        <attr name="menuItemWidth" format="dimension" />
+        <attr name="menuItemHeight" format="dimension" />
+        <attr name="menuItemTextSize" format="dimension" />
+        <attr name="menuItemSelectTextSize" format="dimension" />
+        <attr name="menuItemIndicator" format="reference" />
+        <attr name="menuItemTextColor" format="reference" />
+        <attr name="menuItemBackgroundColor" format="color" />
+        <attr name="menuItemSelectBackgroundColor" format="color" />
+    </declare-styleable>
+
+
+    <!--**********************************************
+    *                rui dialog attrs                *
+    **********************************************-->
+    <!--  RUIDialogRootLayout  -->
+    <attr name="rui_paddingBottomWhenNotContent" format="dimension" />
+
+    <declare-styleable name="RUIDialogRootLayout">
+        <attr name="rui_dialog_min_width" format="dimension" />
+        <attr name="rui_dialog_max_width" format="dimension" />
+        <attr name="rui_dialog_inset_hor" format="dimension" />
+        <attr name="rui_dialog_inset_ver" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="RUITextCommonStyleDef">
+        <attr name="android:textColor" />
+        <attr name="android:textSize" />
+        <attr name="android:background" />
+        <attr name="android:gravity" />
+        <attr name="android:paddingTop" />
+        <attr name="android:paddingLeft" />
+        <attr name="android:paddingRight" />
+        <attr name="android:paddingBottom" />
+        <attr name="android:singleLine" />
+        <attr name="android:ellipsize" />
+        <attr name="android:maxLines" />
+        <attr name="android:lineSpacingExtra" />
+        <attr name="android:drawablePadding" />
+        <attr name="android:textColorHint" />
+        <attr name="android:textStyle" />
+    </declare-styleable>
+
+    <declare-styleable name="RUIDialogActionContainerCustomDef">
+        <attr name="rui_dialog_action_container_justify_content" format="enum">
+            <enum name="start" value="0" />
+            <enum name="end" value="1" />
+            <enum name="stretch" value="2" />
+            <enum name="custom" value="3" />
+        </attr>
+        <attr name="rui_dialog_action_container_custom_space_index" format="integer" />
+        <attr name="rui_dialog_action_height" format="dimension" />
+        <attr name="rui_dialog_action_space" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="TestView">
+        <attr name="android:text" />
+        <attr name="android:textSize" />
     </declare-styleable>
 </resources>

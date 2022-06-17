@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Button.Compat" parent="ButtonBase.Compat">
+        <!-- 去掉5.0下Button点击的阴影动画效果 -->
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+</resources>

@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".app.banner.BannerActivity"></activity>
+        <activity android:name=".app.banner.BannerActivity"/>
         <activity android:name=".app.refresh.RefreshActivity" />
         <activity android:name=".app.custom.TestActivity" />
         <activity android:name=".app.custom.CustomViewActivity">
