@@ -20,7 +20,7 @@ abstract class RDataItem<DATA, VH : RecyclerView.ViewHolder>(data: DATA? = null)
     /**
      * 绑定数据
      */
-    abstract fun onBindData(holder: VH, position: Int)
+    abstract fun onBindData(holder: RecyclerView.ViewHolder, position: Int)
 
     /**
      * 返回该item的布局资源id
@@ -55,7 +55,7 @@ abstract class RDataItem<DATA, VH : RecyclerView.ViewHolder>(data: DATA? = null)
     }
 
     /**
-     * 该item在列表上占几列,代表的宽度是占满屏幕
+     * 当recyclerview为网格布局时有效,表示该item在列表上占几列,代表的宽度是占满屏幕
      */
     open fun getSpanSize(): Int {
         return 0

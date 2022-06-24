@@ -48,6 +48,9 @@
         <activity
             android:name=".app.tab.TabTopDemoActivity"
             android:launchMode="singleTask" />
+        <activity android:name=".app.recyclerview.RecyclerviewActivity">
+
+        </activity>
     </application>
 
 </manifest>

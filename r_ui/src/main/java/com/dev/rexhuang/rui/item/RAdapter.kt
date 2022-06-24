@@ -78,14 +78,14 @@ class RAdapter(context: Context) : Adapter<ViewHolder>() {
     /**
      * 在指定位上添加DataItem
      */
-    fun addItemAt(index: Int, dataItem: RDataItem<*, out ViewHolder>, notify: Boolean) {
-        if (index > 0) {
+    fun addItemAt(index: Int = -1, dataItem: RDataItem<*, out ViewHolder>, notify: Boolean) {
+        if (index >= 0) {
             dataSets.add(index, dataItem)
         } else {
             dataSets.add(dataItem)
         }
 
-        val notifyPos = if (index > 0) index else dataSets.size - 1
+        val notifyPos = if (index >= 0) index else dataSets.size - 1
         if (notify) {
             notifyItemInserted(notifyPos)
         }
@@ -111,7 +111,7 @@ class RAdapter(context: Context) : Adapter<ViewHolder>() {
      * 从指定位置上移除item
      */
     fun removeItemAt(index: Int): RDataItem<*, out ViewHolder>? {
-        if (index > 0 && index < dataSets.size) {
+        if (index >= 0 && index < dataSets.size) {
             val remove = dataSets.removeAt(index)
             notifyItemRemoved(index)
             return remove
@@ -215,7 +215,10 @@ class RAdapter(context: Context) : Adapter<ViewHolder>() {
             //得到它携带的泛型参数的数组
             val arguments = superclass.actualTypeArguments
             //挨个遍历判断 是不是咱们想要的 RecyclerView.ViewHolder 子类 类型的。
-            for (argument in arguments) if (argument is Class<*> && ViewHolder::class.java.isAssignableFrom(argument)) {
+            for (argument in arguments) if (argument is Class<*> && ViewHolder::class.java.isAssignableFrom(
+                    argument
+                )
+            ) {
                 try {
                     //如果是，则使用反射 实例化类上标记的实际的泛型对象
                     //这里需要  try-catch 一把，如果咱们直接在RDataItem子类上标记 RecyclerView.ViewHolder，抽象类是不允许反射的

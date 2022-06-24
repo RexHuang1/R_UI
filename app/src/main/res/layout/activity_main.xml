@@ -7,6 +7,19 @@
     tools:context=".app.MainActivity">
 
     <TextView
+        android:id="@+id/tv_tab_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:onClick="onClick"
+        android:text="RTapTop"
+        android:textColor="#0077cc"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/tv_tab_bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,7 +30,7 @@
         android:textSize="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_tab_top" />
 
     <TextView
         android:id="@+id/tv_refresh"
@@ -33,6 +46,19 @@
         app:layout_constraintTop_toBottomOf="@id/tv_tab_bottom" />
 
     <TextView
+        android:id="@+id/tv_recycler_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:onClick="onClick"
+        android:text="RRecyclerView"
+        android:textColor="#0077cc"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_refresh"/>
+
+    <TextView
         android:id="@+id/tv_banner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,20 +69,8 @@
         android:textSize="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_refresh" />
+        app:layout_constraintTop_toBottomOf="@id/tv_recycler_view" />
 
-    <TextView
-        android:id="@+id/tv_tab_top"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:onClick="onClick"
-        android:text="RTapTop"
-        android:textColor="#0077cc"
-        android:textSize="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_banner" />
 
     <TextView
         android:id="@+id/tv_custom_view"
@@ -69,7 +83,7 @@
         android:textSize="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_tab_top"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_banner"/>
 
     <TextView
         android:id="@+id/tv_test_view"
@@ -83,5 +97,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_custom_view"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
