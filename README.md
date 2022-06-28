@@ -2,6 +2,7 @@
 - app库是demo
 - r_ui是组件库源码
 #### 1. 通用RecyclerView.Adapter和Item
+主要用于解决不同样式的item可以直接添加到同一个recyclerview中的显示。
 位置：r_ui的item包下(r_ui/src/main/java/com/dev/rexhuang/rui/item)
 使用方法：
 1. 使用RAdapter作为RecyclerView的adapter
