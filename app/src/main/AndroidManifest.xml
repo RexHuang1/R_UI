@@ -11,6 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".app.input.LoginActivity"
+            android:exported="true"
+            android:theme="@style/MaterialStyle"/>
         <activity android:name=".app.banner.BannerActivity" />
         <activity android:name=".app.refresh.RefreshActivity">
             <intent-filter>
@@ -20,9 +24,9 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:scheme="http"
                     android:host="www.rexhuang.com"
-                    android:pathPrefix="/refresh" />
+                    android:pathPrefix="/refresh"
+                    android:scheme="http" />
             </intent-filter>
         </activity>
         <activity android:name=".app.custom.TestActivity" />
@@ -48,9 +52,7 @@
         <activity
             android:name=".app.tab.TabTopDemoActivity"
             android:launchMode="singleTask" />
-        <activity android:name=".app.recyclerview.RecyclerviewActivity">
-
-        </activity>
+        <activity android:name=".app.recyclerview.RecyclerviewActivity"></activity>
     </application>
 
 </manifest>

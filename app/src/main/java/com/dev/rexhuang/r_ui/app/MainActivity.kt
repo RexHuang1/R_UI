@@ -8,6 +8,7 @@ import com.dev.rexhuang.r_ui.R
 import com.dev.rexhuang.r_ui.app.banner.BannerActivity
 import com.dev.rexhuang.r_ui.app.custom.CustomViewActivity
 import com.dev.rexhuang.r_ui.app.custom.TestActivity
+import com.dev.rexhuang.r_ui.app.input.LoginActivity
 import com.dev.rexhuang.r_ui.app.recyclerview.RecyclerviewActivity
 import com.dev.rexhuang.r_ui.app.refresh.RefreshActivity
 import com.dev.rexhuang.r_ui.app.tab.TabBottomDemoActivity
@@ -43,6 +44,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.tv_test_view -> {
                 startActivity(Intent(this, TestActivity::class.java))
+            }
+            R.id.tv_login_view -> {
+                startActivity(Intent(this, LoginActivity::class.java))
             }
         }
     }

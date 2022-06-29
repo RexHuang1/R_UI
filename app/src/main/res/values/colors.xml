@@ -8,4 +8,13 @@
     <color name="tabBottomDefault">#ff656667</color>
     <color name="tabBottomSelected">#ffd44949</color>
     <color name="demo_item_background">#ff563d</color>
+
+    <color name="color_background">#f3f4f5</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_000">#000000</color>
+    <color name="color_298">#2983E5</color>
+    <color name="color_646">#646868</color>
+    <color name="color_dd2">#dd2f24</color>
+    <color name="color_C1B">#C1BEBE</color>
+
 </resources>

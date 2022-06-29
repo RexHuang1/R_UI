@@ -15,4 +15,34 @@
 <!--        <item name="text5">text5-declare in Theme</item>-->
     </style>
 
+
+<!--    inputItem,如登录,注册输入框的属性值                  -->
+    <style name="lineAppearance">
+        <item name="color">@color/color_white</item>
+        <item name="height">0.5dp</item>
+        <item name="leftMargin">0dp</item>
+        <item name="rightMargin">0dp</item>
+        <item name="enable">true</item>
+    </style>
+
+    <style name="leftMargin_lineAppearance" parent="lineAppearance">
+        <item name="leftMargin">@dimen/dp_10</item>
+    </style>
+
+    <style name="inputTextAppearance">
+        <item name="hintColor">@color/color_C1B</item>
+        <item name="inputColor">@color/color_565</item>
+        <item name="textSize">15sp</item>
+    </style>
+
+    <style name="titleTextAppearance">
+        <item name="titleColor">@color/color_565</item>
+        <item name="titleSize">15sp</item>
+        <item name="minWidth">100dp</item>
+    </style>
+
+
+    <!--Material样式-->
+    <style name="MaterialStyle" parent="Theme.MaterialComponents.Light.DarkActionBar"/>
+
 </resources>
