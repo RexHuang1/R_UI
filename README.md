@@ -27,7 +27,7 @@
      ```
      属性hint:表示输入框提示文本
      属性title:表示输入框标题
-     属性inputType:text|password|name,三种输入文本后的显示样式
+     属性inputType:text|password|number,三种输入文本后的显示样式
      属性inputTextAppearance:style引用,表示输入框文本的样式
      	hintColor:输入框提示文本的文字颜色
          inputColor:输入框输入文本的文字颜色
@@ -49,3 +49,4 @@
 3. 在styles.xml定义好需要的style引用,直接赋值于布局文件的属性中
 
 **例子:app/src/main/java/com/dev/rexhuang/r_ui/app/input/LoginActivity.kt**
+**例子:app/src/main/java/com/dev/rexhuang/r_ui/app/input/RegisterActivity.kt**

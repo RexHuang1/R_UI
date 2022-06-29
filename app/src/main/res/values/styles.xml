@@ -7,16 +7,16 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-<!--        <item name="attr_style">@style/style_attr_defStyleAttr</item>-->
-<!--        <item name="text1">text1-declare in Theme</item>-->
-<!--        <item name="text2">text2-declare in Theme</item>-->
-<!--        <item name="text3">text3-declare in Theme</item>-->
-<!--        <item name="text4">text4-declare in Theme</item>-->
-<!--        <item name="text5">text5-declare in Theme</item>-->
+        <!--        <item name="attr_style">@style/style_attr_defStyleAttr</item>-->
+        <!--        <item name="text1">text1-declare in Theme</item>-->
+        <!--        <item name="text2">text2-declare in Theme</item>-->
+        <!--        <item name="text3">text3-declare in Theme</item>-->
+        <!--        <item name="text4">text4-declare in Theme</item>-->
+        <!--        <item name="text5">text5-declare in Theme</item>-->
     </style>
 
 
-<!--    inputItem,如登录,注册输入框的属性值                  -->
+    <!--    inputItem,如登录,注册输入框的属性值                  -->
     <style name="lineAppearance">
         <item name="color">@color/color_white</item>
         <item name="height">0.5dp</item>
@@ -35,6 +35,10 @@
         <item name="textSize">15sp</item>
     </style>
 
+    <style name="inputTextAppearance_limitLength" parent="inputTextAppearance">
+        <item name="maxInputLength">4</item>
+    </style>
+
     <style name="titleTextAppearance">
         <item name="titleColor">@color/color_565</item>
         <item name="titleSize">15sp</item>
@@ -43,6 +47,7 @@
 
 
     <!--Material样式-->
-    <style name="MaterialStyle" parent="Theme.MaterialComponents.Light.DarkActionBar"/>
+    <style name="MaterialStyle" parent="Theme.MaterialComponents.Light.DarkActionBar" />
+
 
 </resources>

@@ -12,9 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".app.input.RegisterActivity"
+            android:exported="true"
+            android:theme="@style/MaterialStyle" />
+        <activity
             android:name=".app.input.LoginActivity"
             android:exported="true"
-            android:theme="@style/MaterialStyle"/>
+            android:theme="@style/MaterialStyle" />
         <activity android:name=".app.banner.BannerActivity" />
         <activity android:name=".app.refresh.RefreshActivity">
             <intent-filter>
@@ -52,7 +56,7 @@
         <activity
             android:name=".app.tab.TabTopDemoActivity"
             android:launchMode="singleTask" />
-        <activity android:name=".app.recyclerview.RecyclerviewActivity"></activity>
+        <activity android:name=".app.recyclerview.RecyclerviewActivity" />
     </application>
 
 </manifest>

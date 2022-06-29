@@ -13,7 +13,6 @@ import com.dev.rexhuang.r_ui.app.recyclerview.RecyclerviewActivity
 import com.dev.rexhuang.r_ui.app.refresh.RefreshActivity
 import com.dev.rexhuang.r_ui.app.tab.TabBottomDemoActivity
 import com.dev.rexhuang.r_ui.app.tab.TabTopDemoActivity
-import com.dev.rexhuang.r_ui.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 

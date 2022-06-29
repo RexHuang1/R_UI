@@ -71,7 +71,7 @@
 <!--    inputItem,类似登录,注册输入框的封装属性                      -->
 <!--    属性hint:表示输入框提示文本-->
 <!--    属性title:表示输入框标题-->
-<!--    属性inputType:text|password|name,三种输入文本后的显示样式-->
+<!--    属性inputType:text|password|number,三种输入文本后的显示样式-->
 <!--    属性inputTextAppearance:style引用,表示输入框文本的样式-->
 <!--        hintColor:输入框提示文本的文字颜色-->
 <!--        inputColor:输入框输入文本的文字颜色-->
@@ -95,7 +95,7 @@
         <attr name="inputType" format="enum">
             <enum name="text" value="0"/>
             <enum name="password" value="1"/>
-            <enum name= "name" value="2"/>
+            <enum name= "number" value="2"/>
         </attr>
         <attr name="inputTextAppearance" format="reference"/>
         <attr name="titleTextAppearance" format="reference"/>
