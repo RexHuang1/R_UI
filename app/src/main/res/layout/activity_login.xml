@@ -4,46 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_background"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <com.dev.rexhuang.rui.nav.RNavigationBar
+        android:id="@+id/nav_bar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_45"
-        android:background="@color/color_white">
-
-        <com.dev.rexhuang.r_ui.app.input.IconFontView
-            android:layout_width="@dimen/dp_45"
-            android:layout_height="@dimen/dp_45"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:gravity="center"
-            android:text="@string/if_back"
-            android:textSize="@dimen/sp_24" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:text="@string/title_login"
-            android:textColor="@color/color_000"
-            android:textSize="@dimen/sp_16" />
-
-        <TextView
-            android:id="@+id/action_register"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/dp_6"
-            android:gravity="center"
-            android:padding="@dimen/dp_10"
-            android:text="@string/title_register"
-            android:textColor="@color/color_298"
-            android:textSize="@dimen/sp_16" />
-
-    </RelativeLayout>
+        android:layout_height="@dimen/dp_48"
+        app:nav_line_color="@color/color_d1d2"
+        app:nav_line_height="1px" />
 
     <View
         android:layout_width="match_parent"
@@ -62,7 +30,7 @@
         app:inputTextAppearance="@style/inputTextAppearance"
         app:title="@string/input_item_title_user_name"
         app:titleTextAppearance="@style/titleTextAppearance"
-        app:topLineAppearance="@style/lineAppearance"/>
+        app:topLineAppearance="@style/lineAppearance" />
 
     <com.dev.rexhuang.rui.input.InputItemLayout
         android:id="@+id/input_item_password"
@@ -81,13 +49,13 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_58"
         android:layout_marginLeft="@dimen/dp_10"
-        android:layout_marginRight="@dimen/dp_10"
         android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
         android:text="@string/title_login"
         android:textColor="@color/color_white"
         android:textSize="@dimen/sp_16"
         app:backgroundTint="@color/color_dd2"
-        app:cornerRadius="@dimen/dp_6"/>
+        app:cornerRadius="@dimen/dp_6" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -96,5 +64,5 @@
         android:layout_marginTop="@dimen/dp_6"
         android:text="@string/login_desc_forget_pwd"
         android:textColor="@color/color_646"
-        android:textSize="@dimen/sp_12"/>
+        android:textSize="@dimen/sp_12" />
 </LinearLayout>

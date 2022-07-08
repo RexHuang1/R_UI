@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="RNavigationStyle">@style/navigationStyle</item>
 
         <!--        <item name="attr_style">@style/style_attr_defStyleAttr</item>-->
         <!--        <item name="text1">text1-declare in Theme</item>-->
@@ -47,7 +48,10 @@
 
 
     <!--Material样式-->
-    <style name="MaterialStyle" parent="Theme.MaterialComponents.Light.DarkActionBar" />
+    <style name="MaterialStyle" parent="Theme.MaterialComponents.Light.DarkActionBar" >
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 
 
 </resources>

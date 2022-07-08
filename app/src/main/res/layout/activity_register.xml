@@ -5,39 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <com.dev.rexhuang.rui.nav.RNavigationBar
+        android:id="@+id/nav_bar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_45"
-        android:background="@color/color_white">
-
-
-        <com.dev.rexhuang.r_ui.app.input.IconFontView
-            android:id="@+id/action_back"
-            android:layout_width="@dimen/dp_45"
-            android:layout_height="@dimen/dp_45"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:gravity="center"
-            android:text="@string/if_back"
-            android:textSize="@dimen/sp_24" />
-
-
-        <TextView
-            android:id="@+id/action_login"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:text="@string/title_register"
-            android:textColor="@color/color_000"
-            android:textSize="@dimen/sp_16" />
-
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/color_d1d2" />
+        android:layout_height="@dimen/dp_48"
+        app:nav_line_color="@color/color_d1d2"
+        app:nav_line_height="1px" />
 
     <com.dev.rexhuang.rui.input.InputItemLayout
         android:id="@+id/input_item_orderId"
