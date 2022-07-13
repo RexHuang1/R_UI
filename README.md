@@ -86,3 +86,4 @@
 5. 优先级从高到低位(xml-----theme------默认style:navigationStyle)
 
 **例子:app/src/main/java/com/dev/rexhuang/r_ui/app/input/LoginActivity.kt**
+**例子:app/src/main/java/com/dev/rexhuang/r_ui/app/input/RegisterActivity.kt**

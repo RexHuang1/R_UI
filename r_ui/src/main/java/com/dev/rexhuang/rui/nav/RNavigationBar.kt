@@ -19,6 +19,7 @@ import java.lang.IllegalStateException
 import java.util.ArrayList
 
 /**
+ * 类似ToolBar的自定义导航栏
  **  created by RexHuang
  **  on 2022/7/8
  */
@@ -53,6 +54,7 @@ class RNavigationBar@JvmOverloads constructor(
         }
     }
 
+    // 设置左侧导航键的点击事件(默认情况下是返回键)
     fun setNavListener(listener: OnClickListener) {
         if (!TextUtils.isEmpty(navAttrs.navIconStr)) {
             val navBackView =
@@ -101,6 +103,7 @@ class RNavigationBar@JvmOverloads constructor(
     }
 
 
+    // 增加右侧按钮
     fun addRightTextButton(@StringRes stringRes: Int, viewId: Int): Button {
         return addRightTextButton(RResUtil.getString(stringRes), viewId)
     }
@@ -138,21 +141,14 @@ class RNavigationBar@JvmOverloads constructor(
         addView(view, params)
     }
 
-    private fun addLineView() {
-        val view = View(context)
-        val params = LayoutParams(LayoutParams.MATCH_PARENT, navAttrs.lineHeight)
-        params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
-        view.layoutParams = params
-        view.setBackgroundColor(navAttrs.lineColor)
-        addView(view)
-    }
-
+    // 设置标题
     fun setTitle(title: String) {
         ensureTitleView()
         titleView?.text = title
         titleView?.visibility = if (TextUtils.isEmpty(title)) View.GONE else View.VISIBLE
     }
 
+    // 设置副标题
     fun setSubtitle(subtitle: String) {
         ensureSubtitleView()
         updateTitleViewStyle()
@@ -160,6 +156,7 @@ class RNavigationBar@JvmOverloads constructor(
         subtitleView?.visibility = if (TextUtils.isEmpty(subtitle)) View.GONE else View.VISIBLE
     }
 
+    // 设置中间部分显示的View
     fun setCenterView(view: View) {
         var params = view.layoutParams
         if (params == null) {
@@ -173,6 +170,15 @@ class RNavigationBar@JvmOverloads constructor(
         centerViewParams.addRule(LEFT_OF, mRightLastViewId)
         params.addRule(CENTER_VERTICAL)
         addView(view, centerViewParams)
+    }
+
+    private fun addLineView() {
+        val view = View(context)
+        val params = LayoutParams(LayoutParams.MATCH_PARENT, navAttrs.lineHeight)
+        params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
+        view.layoutParams = params
+        view.setBackgroundColor(navAttrs.lineColor)
+        addView(view)
     }
 
 
